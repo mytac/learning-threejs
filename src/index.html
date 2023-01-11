@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="UTF-8" />
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "../node_modules/three/src/Three.js"
+                }
+            }
+        </script>
+        <script type="module">
+            import * as THREE from 'three'
+            window.THREE = THREE
+        </script>
+    </head>
+
+    <body>
+        <canvas id="c" width="1000px" height="500px"></canvas>
+    </body>
+    <script type="text/javascript" src="./index.js" defer></script>
+</html>

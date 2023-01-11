@@ -1,0 +1,14 @@
+{
+    "name": "threejs-learning",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:mytac/threejs-learning.git",
+    "author": "mytac <my_tac@126.com>",
+    "license": "MIT",
+    "dependencies": {
+        "three": "^0.148.0"
+    },
+    "scripts": {
+        "start": "browser-sync start --server "
+    }
+}
