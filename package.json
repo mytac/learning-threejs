@@ -6,9 +6,10 @@
     "author": "mytac <my_tac@126.com>",
     "license": "MIT",
     "dependencies": {
+        "lodash": "^4.17.21",
         "three": "^0.148.0"
     },
     "scripts": {
-        "start": "browser-sync start --server "
+        "start": "browser-sync start --server --watch"
     }
 }
