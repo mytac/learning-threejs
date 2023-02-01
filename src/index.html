@@ -2,23 +2,26 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charset="UTF-8" />
-        <script type="importmap">
+        <!-- <script type="importmap">
             {
                 "imports": {
                     "three": "../node_modules/three/src/Three.js"
                 }
             }
-        </script>
-        <link rel="stylesheet" href="./style.css" />
-        <script type="module" src="./utils/responsive.js"></script>
-        <script type="module">
+        </script> -->
+        <!-- <script type="module" src="./utils/responsive.js"></script> -->
+        <!-- <script type="module">
             import * as THREE from 'three'
             window.THREE = THREE
-        </script>
+        </script> -->
+
+        <!-- <script type="module" src="./geometry/index.js"></script> -->
     </head>
 
     <body>
         <canvas id="c"></canvas>
+        <div id="loading">
+            <div class="progress"><div class="progressbar"></div></div>
+        </div>
     </body>
-    <script type="module" src="./index.js" defer></script>
 </html>
