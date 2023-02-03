@@ -28,7 +28,7 @@ const createRenderer = () => {
 // 使用时：requestAnimationFrame(rotateRender)
 const rotateRenderFunc = (scene, camera, renderer, meshes = []) => {
     const render = (time) => {
-        time *= 0.0001 // 将时间单位变为秒
+        time *= 0.001 // 将时间单位变为秒
 
         if (Responsive.resizeRendererToDisplaySize(renderer)) {
             const canvas = renderer.domElement

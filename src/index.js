@@ -24,7 +24,7 @@ const main = () => {
     // light.position.set(-1, 2, 4)
     scene.add(light)
 
-    const { objects } = runDemo(scene)
+    const { objects } = runDemo(scene, camera)
     renderer.render(scene, camera)
 
     const render = rotateRenderFunc(scene, camera, renderer, objects)
