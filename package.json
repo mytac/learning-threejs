@@ -6,6 +6,7 @@
     "author": "mytac <my_tac@126.com>",
     "license": "MIT",
     "dependencies": {
+        "lil-gui": "^0.17.0",
         "lodash": "^4.17.21",
         "three": "^0.148.0"
     },

@@ -1,12 +1,13 @@
-import './style.css'
+import * as THREE from 'three'
+import GUI from 'lil-gui'
 import {
     createCamera,
     createLight,
     createRenderer,
     rotateRenderFunc,
 } from './utils/index.js'
-import * as THREE from 'three'
 import runDemo from './course/3-scene'
+import './style.css'
 
 // const axesHelper = new THREE.AxesHelper(5)
 
@@ -15,6 +16,7 @@ const main = () => {
     scene.background = new THREE.Color(0xaaaaaa)
 
     const renderer = createRenderer()
+
     const camera = createCamera()
     camera.position.set(0, 50, 0)
     camera.up.set(0, 0, 1)

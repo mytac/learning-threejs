@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import * as Color from './color'
 import * as Responsive from './responsive'
+import AxisGridHelper from './AxisGridHelper'
 
 const createCamera = () => {
     const fov = 40
@@ -50,6 +51,11 @@ const rotateRenderFunc = (scene, camera, renderer, meshes = []) => {
     return render
 }
 
+function makeAxisGrid(gui, node, label, units) {
+    const helper = new AxisGridHelper(node, units)
+    gui.add(helper, 'visible').name(label)
+}
+
 export {
     Color,
     Responsive,
@@ -57,4 +63,5 @@ export {
     createLight,
     createRenderer,
     rotateRenderFunc,
+    makeAxisGrid,
 }
