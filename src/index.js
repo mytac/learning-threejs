@@ -6,7 +6,7 @@ import {
     createRenderer,
     rotateRenderFunc,
 } from './utils/index.js'
-import runDemo from './course/3-scene'
+import runDemo from './course/4-camera'
 import './style.css'
 
 // const axesHelper = new THREE.AxesHelper(5)
@@ -17,16 +17,14 @@ const main = () => {
 
     const renderer = createRenderer()
 
-    const camera = createCamera()
-    camera.position.set(0, 50, 0)
-    camera.up.set(0, 0, 1)
-    camera.lookAt(0, 0, 0)
+    let cam = createCamera()
+    cam.position.set(0, 0, 10)
 
     const light = createLight()
-    // light.position.set(-1, 2, 4)
+    light.position.set(0, 0, 0)
     scene.add(light)
 
-    const { objects } = runDemo(scene, camera)
+    const { objects = [], camera = cam } = runDemo(scene, cam, light)
     renderer.render(scene, camera)
 
     const render = rotateRenderFunc(scene, camera, renderer, objects)

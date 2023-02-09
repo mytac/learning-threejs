@@ -3,19 +3,17 @@ import * as Color from './color'
 import * as Responsive from './responsive'
 import AxisGridHelper from './AxisGridHelper'
 
-const createCamera = () => {
-    const fov = 40
-    const aspect = 2 // the canvas default
-    const near = 0.1
-    const far = 1000
+const createCamera = (fov = 40, aspect = 2, near = 0.1, far = 1000) => {
     return new THREE.PerspectiveCamera(fov, aspect, near, far)
 }
 
-const createLight = () => {
+const createLight = (type = 'point') => {
     const color = 0xffffff
     const intensity = 1
-    // const light = new THREE.DirectionalLight(color, intensity)
-    const light = new THREE.PointLight(color, intensity)
+    if (type === 'point') {
+        return new THREE.PointLight(color, intensity)
+    }
+    return new THREE.DirectionalLight(color, intensity)
 
     return light
 }

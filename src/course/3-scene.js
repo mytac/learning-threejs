@@ -3,11 +3,18 @@ import { GUI } from 'lil-gui'
 import { makeAxisGrid } from '../utils'
 import { createSun, createEarth, createMoon } from '../geometry/solar-system'
 
-const render = (scene, camera) => {
+const render = (scene, camera, light) => {
+    camera.position.set(0, 50, 0)
+    camera.up.set(0, 0, 1)
+    camera.lookAt(0, 0, 0)
+
     const gui = new GUI()
 
     scene.background = new THREE.Color('#000')
     camera.position.set(0, 50, 0)
+
+    light.position.set(0, 0, 0)
+    scene.add(light)
 
     const objects = []
     const solarSystem = new THREE.Object3D()
