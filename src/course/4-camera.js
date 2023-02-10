@@ -1,10 +1,11 @@
 import * as THREE from 'three'
 import { GUI } from 'lil-gui'
-import { makeAxisGrid, createLight, createCamera } from '../utils'
+import MinMaxGUIHelper from '../utils/MinMaxGUIHelper'
+import { updateCamera, createCamera, createLight } from '../utils'
 import { createCube, createSphere, createPlane } from '../geometry'
 
-const render = (scene, camera, light) => {
-    scene.remove(camera)
+const render = (scene, cam, light) => {
+    scene.remove(cam)
 
     const fov = 45
     const aspect = 2 // the canvas default
@@ -42,6 +43,16 @@ const render = (scene, camera, light) => {
     const plane = createPlane()
     plane.rotation.x = Math.PI * -0.5
     scene.add(plane)
+
+    // 设置GUI
+    const gui = new GUI()
+    const update = updateCamera.bind(null, newCamera)
+    gui.add(newCamera, 'fov', 1, 180).onChange(update)
+    const minMaxGUIHelper = new MinMaxGUIHelper(newCamera, 'near', 'far', 0.1)
+    gui.add(minMaxGUIHelper, 'min', 0.1, 50, 0.1).name('near').onChange(update)
+    gui.add(minMaxGUIHelper, 'max', 0.1, 50, 0.1).name('far').onChange(update)
+
+    // 滚轮控制
 
     return { objects: [], camera: newCamera }
 }

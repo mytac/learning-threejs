@@ -54,6 +54,14 @@ function makeAxisGrid(gui, node, label, units) {
     gui.add(helper, 'visible').name(label)
 }
 
+/**
+ * 用于更新相机 fov、aspect、near、far属性
+ * @param {Camera} camera
+ */
+function updateCamera(camera) {
+    camera.updateProjectionMatrix()
+}
+
 export {
     Color,
     Responsive,
@@ -62,4 +70,5 @@ export {
     createRenderer,
     rotateRenderFunc,
     makeAxisGrid,
+    updateCamera,
 }
