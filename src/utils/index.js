@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import * as Color from './color'
 import * as Responsive from './responsive'
 import AxisGridHelper from './AxisGridHelper'
+import { setScissorForElement } from './FrustumCamera'
 
 const createCamera = (fov = 40, aspect = 2, near = 0.1, far = 1000) => {
     return new THREE.PerspectiveCamera(fov, aspect, near, far)
@@ -71,4 +72,5 @@ export {
     rotateRenderFunc,
     makeAxisGrid,
     updateCamera,
+    setScissorForElement,
 }

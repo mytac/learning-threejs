@@ -6,11 +6,22 @@ const cameraResponsive = (camera, renderer) => {
 }
 
 // 判断render是否需要 resize
-const resizeRendererToDisplaySize = (renderer) => {
-    const canvas = renderer.domElement
-    const pixelRatio = window.devicePixelRatio
-    const width = (canvas.clientWidth * pixelRatio) | 0
-    const height = (canvas.clientHeight * pixelRatio) | 0
+const resizeRendererToDisplaySize = (
+    renderer,
+    canvas = renderer.domElement
+) => {
+    // const pixelRatio = window.devicePixelRatio
+    // const width = (canvas.clientWidth * pixelRatio) | 0
+    // const height = (canvas.clientHeight * pixelRatio) | 0
+    // const needResize = canvas.width !== width || canvas.height !== height
+    // if (needResize) {
+    //     renderer.setSize(width, height, false)
+    // }
+    // console.log('needResize', needResize)
+    // return needResize
+
+    const width = canvas.clientWidth
+    const height = canvas.clientHeight
     const needResize = canvas.width !== width || canvas.height !== height
     if (needResize) {
         renderer.setSize(width, height, false)

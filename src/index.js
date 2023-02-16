@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import GUI from 'lil-gui'
 import {
     createCamera,
@@ -7,13 +6,12 @@ import {
     createRenderer,
     rotateRenderFunc,
 } from './utils/index.js'
-import runDemo from './course/4-camera'
+import * as Demo from './course/4-camera'
 import './style.css'
 
 // const axesHelper = new THREE.AxesHelper(5)
 
 const main = () => {
-    const canvas = document.querySelector('#c')
     const scene = new THREE.Scene()
     scene.background = new THREE.Color(0xaaaaaa)
 
@@ -26,16 +24,23 @@ const main = () => {
     light.position.set(0, 0, 0)
     scene.add(light)
 
-    const { objects = [], camera = cam } = runDemo(scene, cam, light)
+    Demo.beforeRender()
+
+    const {
+        objects = [],
+        camera = cam,
+        afterRender = () => {},
+        useDefaultRender = true,
+    } = Demo.render(scene, cam, light)
     renderer.render(scene, camera)
 
-    const controls = new OrbitControls(camera, canvas)
-    controls.target.set(0, 5, 0)
-    controls.update()
-
-    const render = rotateRenderFunc(scene, camera, renderer, objects)
-
-    requestAnimationFrame(render)
+    if (useDefaultRender) {
+        const render = rotateRenderFunc(scene, camera, renderer, objects)
+        requestAnimationFrame(render)
+    } else {
+        const renderFunc = afterRender(renderer)
+        requestAnimationFrame(renderFunc)
+    }
 }
 
 main()
